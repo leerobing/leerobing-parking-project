@@ -8,18 +8,16 @@ public class Main {
                 .setCarNumber("서울 가1245")
                 .build();
 
-        System.out.println(car);
         DisabledDriver discountPolicy = new DisabledDriver();
         TicketOffice ticketOffice = new TicketOffice(discountPolicy);
         ParkingLot parkingLot = new ParkingLot();
         Employee employee = new Employee(parkingLot,ticketOffice);
-        Wallet wallet = new Wallet(1000L);
+        Wallet wallet = new Wallet(10000L);
         Ticket ticket = new Ticket();
         Registration registration = new Registration(1L);
-        registration.check();
-        Customer customer = new Customer(car,wallet,ticket,registration);
-        customer.ticketPurchase(employee,customer.showRegistration());
-        System.out.println(customer);
+        Customer customer = Customer.of(car,wallet,ticket,registration);
+        ParkingFacade parkingFacade = new ParkingFacade(customer,discountPolicy,parkingLot,employee);
+        parkingFacade.test();
 
 
     }

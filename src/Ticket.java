@@ -12,6 +12,9 @@ public class Ticket {
         return this;
     }
 
+    public Long showTicketPrice() {
+        return this.price;
+    }
 
     public static Ticket of(Long price, String type) {
         return new Ticket(price,type);

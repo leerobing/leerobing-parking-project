@@ -8,12 +8,15 @@ public class Customer {
 
     }
 
-
-    public Customer(Car car, Wallet wallet, Ticket ticket,Registration registration) {
+    private Customer(Car car, Wallet wallet, Ticket ticket,Registration registration) {
         this.car = car;
         this.wallet = wallet;
         this.ticket = ticket;
         this.registration = registration;
+    }
+
+    public static Customer of(Car car, Wallet wallet, Ticket ticket,Registration registration) {
+        return new Customer(car,wallet,ticket,registration);
     }
 
     public Long parkingSpotConfirmationRequest (Employee employee) {
@@ -23,8 +26,9 @@ public class Customer {
     public Registration showRegistration() {
         return registration;
     }
-    public void ticketPurchase(Employee employee,Registration registration) {
+    public void ticketPurchase(Employee employee) {
       this.ticket = employee.ticketSales(showRegistration());
+      wallet.minusAmount(ticket.showTicketPrice());
     }
 
     @Override

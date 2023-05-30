@@ -9,5 +9,10 @@ public class Wallet {
         this.amount -= amount;
     }
 
-
+    @Override
+    public String toString() {
+        return "Wallet{" +
+                "amount=" + amount +
+                '}';
+    }
 }

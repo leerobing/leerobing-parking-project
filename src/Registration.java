@@ -22,6 +22,8 @@ public class Registration {
 
     @Override
     public String toString() {
-        return check();
+        return "Registration{" +
+                "type=" + type +
+                '}'+", "+check();
     }
 }
