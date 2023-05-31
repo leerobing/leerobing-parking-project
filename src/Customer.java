@@ -1,7 +1,7 @@
 public class Customer {
     private Car car;
     private Wallet wallet;
-    private Ticket ticket;
+    private TicketInterface ticket;
     private Registration registration;
 
     private Customer() {

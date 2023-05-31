@@ -15,13 +15,16 @@ public class Employee {
         return parkingLot.checkParkingSpot();
     }
     //주차권 판매 메서드
-    public Ticket ticketSales(Registration registration) {
+    public TicketInterface ticketSales(Registration registration) {
         if (checkParkingSpotRequest() != 0L) {
-            return ticketOffice.getTicket(registration);
-        } else {
-            return ticketOffice.getWaitTicket();
+            Ticket ticket = ticketOffice.getTicket(registration);
+            if (parkingLot.checkParkFloor() == 1L) {
+                return ticketOffice.getOneFloorTicket(ticket);
+            } else if (parkingLot.checkParkFloor() == 2L) {
+                return ticketOffice.getTwoFloorTicket(ticket);
+            }
         }
-
+        return ticketOffice.getWaitTicket();
     }
 
 

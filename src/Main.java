@@ -8,13 +8,13 @@ public class Main {
                 .setCarNumber("서울 가1245")
                 .build();
 
-        DisabledDriver discountPolicy = new DisabledDriver();
+        DiscountPolicy discountPolicy = new ElderlyDriverDiscountPolicy();
         TicketOffice ticketOffice = new TicketOffice(discountPolicy);
         ParkingLot parkingLot = new ParkingLot();
         Employee employee = new Employee(parkingLot,ticketOffice);
-        Wallet wallet = new Wallet(10000L);
+        Wallet wallet = new Wallet(20000L);
         Ticket ticket = new Ticket();
-        Registration registration = new Registration(1L);
+        Registration registration = new Registration(2L);
         Customer customer = Customer.of(car,wallet,ticket,registration);
         ParkingFacade parkingFacade = new ParkingFacade(customer,discountPolicy,parkingLot,employee);
         parkingFacade.test();

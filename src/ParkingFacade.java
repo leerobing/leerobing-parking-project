@@ -1,7 +1,7 @@
 public class ParkingFacade {
 
     private Customer customer;
-    private DisabledDriver discountPolicy;
+    private DiscountPolicy discountPolicy;
     private ParkingLot parkingLot;
     private Employee employee;
 
@@ -9,7 +9,7 @@ public class ParkingFacade {
 
     public ParkingFacade(Customer customer, DiscountPolicy discountPolicy, ParkingLot parkingLot,Employee employee) {
         this.customer = customer;
-        this.discountPolicy = (DisabledDriver) discountPolicy;
+        this.discountPolicy = discountPolicy;
         this.parkingLot = parkingLot;
         this.employee = employee;
     }

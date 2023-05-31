@@ -1,4 +1,4 @@
-public class Ticket {
+public class Ticket implements TicketInterface{
     private Long price;
     private String type;
     public Ticket() {}
